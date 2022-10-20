@@ -39,6 +39,7 @@ python3 heplang.py
 - [ ] Ability to read and compile .hep files
 - [ ] Functions
 - [ ] While/For statements/loops
+- [ ] Give features to the build.egg file in compling to handle multiple .hep files at once.
 
 ## Documentation
 
