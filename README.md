@@ -7,10 +7,6 @@
   
 </div>
 
-## Documentation
-
-- The project is a tiny, TINY, hobby project. As it grows I will eventually add documentation but since it's under development that has not stagnated in the ~6 hours I created it, I will add it when development slows down. For now, "The code is the docs™"
-
 ## Why?
 
 Some may think, "why another programming language", and honestly, my answer is "Why not?". I decided to make Heplang for no other reason than that it would be a fun project to work on. I wanted something challenging, and something to improve my experience in a language where I was under-confident, so I chose to make a language, in Python.
@@ -42,4 +38,7 @@ python3 heplang.py
 - [ ] Functions
 - [ ] While/For statements/loops
 
+## Documentation
+
+- The project is a tiny, TINY, hobby project. As it grows I will eventually add documentation but since it's under development that has not stagnated in the ~6 hours I created it, I will add it when development slows down. For now, "The code is the docs™"
 
