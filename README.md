@@ -27,6 +27,8 @@ cd heplang/
 python3 heplang.py
 ```
 
+* Currently, the build.egg serves no purpose other than if you wish to change your default binary name from `main` to something else. In the future it should be utilised as build instructions where bits of code can go to certain files.
+
 ## Features
 
 - [x] IDLE Shell
