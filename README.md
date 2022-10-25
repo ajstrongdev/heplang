@@ -35,7 +35,8 @@ python3 heplang.py
 - [x] Ability to declare variables
 - [x] Print to console
 - [x] Print with fstrings
-- [ ] If statements
+- [x] If statements
+- [x] User input
 - [ ] Ability to read and compile .hep files
 - [ ] Functions
 - [ ] While/For statements/loops
@@ -43,5 +44,5 @@ python3 heplang.py
 
 ## Documentation
 
-- The project is a tiny, TINY, hobby project. As it grows I will eventually add documentation but since it's under development that has not stagnated in the ~6 hours I created it, I will add it when development slows down. For now, "The code is the docs™"
+https://github.com/httpllamaz/heplang/wiki
 
