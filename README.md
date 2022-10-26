@@ -36,6 +36,7 @@ python3 heplang.py
 - [x] Print to console
 - [x] Print with fstrings
 - [x] If statements
+- [x] Else if
 - [x] User input
 - [ ] Ability to read and compile .hep files
 - [ ] Functions
