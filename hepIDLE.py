@@ -105,6 +105,13 @@ while True:
         if_data = command[3:if_data_end-1]
         cmd_list.append(f' if {if_data}:')
         inif = 1
+
+    # Else if
+    if command[0:5] == "elif(":
+        elif_data_end = command.find(');') + 1
+        elif_data = command[5:elif_data_end-1]
+        cmd_list.append(f' elif {elif_data}:')
     
+    # End If Statements
     if command[0:2] == "};":
         inif = 0
