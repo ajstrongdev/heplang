@@ -20,7 +20,8 @@ for index, line in enumerate(lines):
 file.close()
 
 # Check if in if statement
-inif = 0
+indent = 0
+indent_gap = ""
 
 # IDLE Shell
 os.system('clear')
@@ -59,59 +60,64 @@ while True:
     ###########    
     # Lexer   #
     ##########
-    
+
+    # See whether items need to be indented
+    if indent == -1:
+        indent = 0
+        indent_gap = ""
+    if indent == 0:
+        indent_gap = ""
+    elif indent == 1:
+        indent_gap = "  "
+    elif indent == 2:
+        indent_gap = "   "
+    elif indent == 3:
+        indent_gap = "    "
+    elif indent == 4:
+        indent_gap = "     "
+    elif indent == 5:
+        indent_gap = "      "
+
+
     # Variables
     if command[0:3] == "let":
         equals = command.find('=')
         variable_name = command[3:equals-1] 
         end_arg = command.find(';')
         variable_data = command[equals:end_arg]
-        if inif == 0:
-            cmd_list.append(f'{variable_name} {variable_data}')
-        if inif == 1:
-            cmd_list.append(f'  {variable_name} {variable_data}')
-        #print("variable declared") # Debug
+        cmd_list.append(f'{indent_gap}{variable_name} {variable_data}')
     
     # Print to console (standard)
     if command[0:8] == "printc!(":
         pr_end = command.find(');')
         str_content = command[8:pr_end]
-        if inif == 0:
-            cmd_list.append(f' print({str_content})')
-        if inif == 1:
-            cmd_list.append(f'   print({str_content})')
+        cmd_list.append(f' {indent_gap}print({str_content})')
 
     # Print to console (f-string)
     if command[0:9] == "fprintc!(":
         pr_end = command.find(');')
         fstr_content = command[9:pr_end]
-        if inif == 0:
-            cmd_list.append(f' print(f{fstr_content})')
-        if inif == 1:
-            cmd_list.append(f'   print(f{fstr_content})')
+        cmd_list.append(f' {indent_gap}print(f{fstr_content})')
     
     # Take user input
     if command[0:4] == "rl!(":
         rl_end = command.find(');')
         var_name = command[4:rl_end]
-        if inif == 0:
-            cmd_list.append(f' {var_name} = input()')
-        if inif == 1:
-            cmd_list.append(f'   {var_name} = input()')
+        cmd_list.append(f' {indent_gap}{var_name} = input()')
 
     # If statements
     if command[0:3] == "if(":
         if_data_end = command.find(');') + 1
         if_data = command[3:if_data_end-1]
-        cmd_list.append(f' if {if_data}:')
-        inif = 1
+        cmd_list.append(f' {indent_gap}if {if_data}:')
+        indent = indent + 1
 
     # Else if
     if command[0:5] == "elif(":
         elif_data_end = command.find(');') + 1
         elif_data = command[5:elif_data_end-1]
-        cmd_list.append(f' elif {elif_data}:')
+        cmd_list.append(f' {indent_gap}elif {elif_data}:')
     
     # End If Statements
     if command[0:2] == "};":
-        inif = 0
+        indent = indent - 1
