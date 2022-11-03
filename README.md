@@ -39,7 +39,7 @@ python3 heplang.py
 - [x] Else if
 - [x] User input
 - [ ] Ability to read and compile .hep files
-- [ ] Functions
+- [x] Functions
 - [ ] While/For statements/loops
 - [ ] Give features to the build.egg file in compling to handle multiple .hep files at once.
 

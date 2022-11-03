@@ -77,6 +77,12 @@ while True:
         indent_gap = "     "
     elif indent == 5:
         indent_gap = "      "
+    elif indent == 6:
+        indent_gap = "       "
+    elif indent == 7:
+        indent_gap = "        "
+    elif indent == 8:
+        indent_gap = "         "
 
 
     # Variables
@@ -118,6 +124,19 @@ while True:
         elif_data = command[5:elif_data_end-1]
         cmd_list.append(f' {indent_gap}elif {elif_data}:')
     
-    # End If Statements
+    # Functions
+    if command[0:5] == "func(":
+        func_data_end = command.find(');') + 1
+        func_data = command[5:func_data_end-1]
+        cmd_list.append(f' {indent_gap}def {func_data}():')
+        indent = indent + 1
+    
+    # Call functions
+    if command[0:4] == "call":
+        end_call = command.find('();')
+        func_name = command[4:end_call]
+        cmd_list.append(f'{indent_gap}{func_name}()')
+    
+    # Closing Statements
     if command[0:2] == "};":
         indent = indent - 1
